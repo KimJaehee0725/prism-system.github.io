@@ -322,25 +322,90 @@
     </div>
     <div class="logo-grid">
       <div class="logo-card">
+        <img src="assets/univ-mark/%EC%84%9C%EC%9A%B8%EB%8C%80%ED%95%99%EA%B5%90_logo.png" alt="서울대학교 로고">
+      </div>
+      <div class="logo-card placeholder">한양대학교 로고 추가 필요</div>
+      <div class="logo-card">
+        <img src="assets/univ-mark/%EC%84%B1%EA%B7%A0%EA%B4%80%EB%8C%80_01.jpg" alt="성균관대학교 로고">
+      </div>
+      <div class="logo-card">
+        <img src="assets/univ-mark/kaist_logo.png" alt="카이스트 로고">
+      </div>
+      <div class="logo-card">
+        <img src="assets/univ-mark/%EA%B3%A0%EB%A0%A4%EB%8C%80%ED%95%99%EA%B5%904.gif" alt="고려대학교 로고">
+      </div>
+      <div class="logo-card">
         <img src="assets/univ-mark/%EB%B9%84%EC%95%84%EC%9D%B4%EB%A7%A4%ED%8A%B8%EB%A6%AD%EC%8A%A4.png" alt="비아이매트릭스 로고">
       </div>
+      <div class="logo-card">
+        <img src="assets/univ-mark/%EC%95%8C%ED%8B%B0%EC%97%A4_03.png" alt="알티엠 로고">
+      </div>
     </div>
+    <p class="iipt-note">"본 연구는 <strong>정보통신기획평가원(IITP)</strong>의 지원을 받아 수행되었습니다."</p>
   </section>
 
-  <section class="section callout">
-    <div>
-      <h3>자료를 더하고 싶다면?</h3>
-      <p class="muted">로고, 스크린샷, 데모 영상, 설치 가이드 PDF 등을 보내주면 섹션별로 배치해 둘 수 있습니다.</p>
-    </div>
-    <div class="cta-row">
-      <a class="btn primary" href="#intro">페이지 다듬기</a>
-      <a class="btn ghost" href="#modules">레포 링크 채우기</a>
-    </div>
-  </section>
+  <div class="lightbox" aria-hidden="true" role="dialog" aria-label="스크린샷 확대 보기">
+    <button class="lightbox-close" type="button" aria-label="확대 이미지 닫기">×</button>
+    <img class="lightbox-image" alt="">
+    <p class="lightbox-caption"></p>
+  </div>
 
   <footer class="footer">
     <p>PRISM System · Manufacturing AI Agent Stack</p>
     <p class="muted">Made for 인터페이스 · 코어 엔진 · 시계열 · 에이전트 통합</p>
   </footer>
+
+  <script>
+    (function () {
+      const shots = document.querySelectorAll(".gallery .shot img");
+      const lightbox = document.querySelector(".lightbox");
+      if (!lightbox || !shots.length) return;
+
+      const lightboxImg = lightbox.querySelector(".lightbox-image");
+      const lightboxCaption = lightbox.querySelector(".lightbox-caption");
+      const closeBtn = lightbox.querySelector(".lightbox-close");
+
+      const lockScroll = () => {
+        document.body.dataset.scrollRestore = document.body.style.overflow || "";
+        document.body.style.overflow = "hidden";
+      };
+
+      const unlockScroll = () => {
+        document.body.style.overflow = document.body.dataset.scrollRestore || "";
+        delete document.body.dataset.scrollRestore;
+      };
+
+      const openLightbox = (src, alt, caption) => {
+        if (!lightboxImg) return;
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || caption || "확대된 스크린샷";
+        if (lightboxCaption) lightboxCaption.textContent = caption || alt || "";
+        lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
+        lockScroll();
+      };
+
+      const closeLightbox = () => {
+        lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden", "true");
+        unlockScroll();
+      };
+
+      shots.forEach((img) => {
+        img.addEventListener("click", () => {
+          const caption = img.closest(".shot")?.querySelector("figcaption")?.textContent?.trim() || img.alt;
+          openLightbox(img.src, img.alt, caption);
+        });
+      });
+
+      closeBtn?.addEventListener("click", closeLightbox);
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) closeLightbox();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") closeLightbox();
+      });
+    })();
+  </script>
 </body>
 </html>
