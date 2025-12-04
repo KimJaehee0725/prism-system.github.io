@@ -1,16 +1,16 @@
 :root {
-  --bg: #050709;
-  --panel: rgba(255, 255, 255, 0.04);
-  --card: rgba(255, 255, 255, 0.06);
-  --text: #e9edf5;
-  --muted: #99a2b3;
+  --bg: #f7f8fb;
+  --panel: rgba(255, 255, 255, 0.78);
+  --card: rgba(255, 255, 255, 0.9);
+  --text: #0d1525;
+  --muted: #5a6478;
   --accent: #4be1ec;
   --accent-2: #7f5af0;
-  --border: rgba(255, 255, 255, 0.08);
+  --border: rgba(13, 21, 37, 0.08);
   --radius-lg: 18px;
   --radius-md: 14px;
   --radius-sm: 10px;
-  --shadow: 0 10px 50px rgba(0, 0, 0, 0.35);
+  --shadow: 0 12px 50px rgba(15, 17, 22, 0.18);
   --font: "Space Grotesk", "Pretendard Variable", "Spoqa Han Sans Neo", system-ui, -apple-system, sans-serif;
 }
 
@@ -21,8 +21,8 @@
 body {
   margin: 0;
   font-family: var(--font);
-  background: radial-gradient(100% 120% at 20% 20%, rgba(75, 225, 236, 0.08), transparent),
-              radial-gradient(80% 80% at 80% 0%, rgba(127, 90, 240, 0.12), transparent),
+  background: radial-gradient(100% 120% at 20% 20%, rgba(75, 225, 236, 0.16), transparent),
+              radial-gradient(80% 80% at 80% 0%, rgba(127, 90, 240, 0.14), transparent),
               var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -43,7 +43,7 @@ a {
   justify-content: space-between;
   padding: 18px 48px;
   backdrop-filter: blur(16px);
-  background: rgba(5, 7, 9, 0.72);
+  background: rgba(255, 255, 255, 0.85);
   border-bottom: 1px solid var(--border);
 }
 
@@ -136,7 +136,7 @@ a {
 }
 
 .btn.ghost {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(13, 21, 37, 0.04);
   border-color: var(--border);
   color: var(--text);
 }
@@ -497,7 +497,7 @@ code {
   place-items: center;
   text-align: center;
   padding: 16px;
-  background: linear-gradient(135deg, rgba(75, 225, 236, 0.16), rgba(127, 90, 240, 0.12));
+  background: linear-gradient(135deg, rgba(75, 225, 236, 0.18), rgba(127, 90, 240, 0.14));
 }
 
 .video-placeholder p {
@@ -506,6 +506,35 @@ code {
 
 .video-frame.has-video .video-placeholder {
   display: none;
+}
+
+.figure-card {
+  margin: 16px auto 0;
+  max-width: 960px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.figure-card img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  background: #0f1116;
+}
+
+.figure-card figcaption {
+  padding: 10px 12px;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.95rem;
 }
 
 .lightbox {
