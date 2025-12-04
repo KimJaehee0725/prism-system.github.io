@@ -63,6 +63,32 @@ a {
   box-shadow: 0 0 18px rgba(75, 225, 236, 0.6);
 }
 
+.hero-title-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.hero-github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: rgba(13, 21, 37, 0.06);
+  color: var(--text);
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-github:hover {
+  background: rgba(75, 225, 236, 0.16);
+  border-color: rgba(75, 225, 236, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
 .nav nav {
   display: flex;
   gap: 18px;
@@ -106,7 +132,8 @@ a {
 
 .lede {
   color: var(--muted);
-  max-width: 760px;
+  width: 100%;
+  font-size: 1.12rem;
 }
 
 .cta-row {
@@ -178,6 +205,10 @@ a {
 
 .card {
   padding: 22px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
 }
 
 .chip {
@@ -240,12 +271,24 @@ a {
 }
 
 .section {
-  padding: 36px 48px 12px;
+  margin: 20px 24px;
+  padding: 28px 32px 12px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
 }
 
 .section-header {
-  max-width: 960px;
-  margin: 0 auto 8px;
+  margin: 0 0 16px;
+}
+
+.section-header p {
+  font-size: 1.08rem;
+}
+
+.section > * + * {
+  margin-top: 16px;
 }
 
 .section h2 {
@@ -262,9 +305,10 @@ a {
 
 .time-card {
   padding: 18px;
-  background: var(--panel);
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
 }
 
 .time-card h3 {
@@ -322,9 +366,10 @@ a {
 
 .mini-card {
   padding: 14px;
-  background: var(--panel);
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
 }
 
 .mini-card h4 {
@@ -477,6 +522,7 @@ code {
   border: 1px solid var(--border);
   background: var(--panel);
   box-shadow: var(--shadow);
+  margin: 0 auto;
 }
 
 .video-frame iframe {
@@ -521,7 +567,7 @@ code {
   width: auto;
   max-width: 100%;
   height: auto;
-  background: #0f1116;
+  background: #fff;
 }
 
 .figure-card figcaption {
