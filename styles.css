@@ -106,7 +106,7 @@ a {
 
 .lede {
   color: var(--muted);
-  max-width: 620px;
+  max-width: 760px;
 }
 
 .cta-row {
@@ -166,12 +166,6 @@ a {
   border: 1px solid var(--border);
   color: var(--muted);
   font-size: 0.9rem;
-}
-
-.hero-visual {
-  display: grid;
-  gap: 14px;
-  justify-items: end;
 }
 
 .glass {
@@ -250,7 +244,8 @@ a {
 }
 
 .section-header {
-  max-width: 720px;
+  max-width: 960px;
+  margin: 0 auto 8px;
 }
 
 .section h2 {
